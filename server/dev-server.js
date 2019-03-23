@@ -18,6 +18,7 @@ const options = {
 WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
 
 const compiler = webpack(webpackConfig);
+webpackConfig.entry.app.unshift(`webpack-dev-server/client?http://${options.host}:${options.port}`);
 
 const server = new WebpackDevServer(compiler, options);
 

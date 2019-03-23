@@ -1,3 +1,4 @@
-console.log(111)
+import './index.css';
+console.log(process.env);
 
-document.querySelector('#app').innerHTML = 'React-base-cli888';
+document.querySelector('#app').innerHTML = 'React-base-cli56668866';
