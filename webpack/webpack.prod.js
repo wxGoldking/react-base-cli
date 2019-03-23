@@ -29,6 +29,27 @@ module.exports = merge(webpackConfig, {
     new CleanWebpackPlugin(),
     // new BundleAnalyzerPlugin()
   ],
+   // 抽离公共模块
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        // 默认抽离commons(一般自己配置)
+        commons: {
+          name: "commons",
+          chunks: "initial", // 通过chunks选项可以选择块，有3个值："initial"、"async"和"all"。分别用于选择初始块、按需加载的块和所有块
+          minChunks: 2 //  最小重复次数
+        },
+        // 抽离react的例子
+        // react: {
+        //   test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+        //   name: 'react',
+        //   chunks: 'all',
+        //   enforce: true
+        // },
+        default: false
+      }
+    }
+  },
   module: {
     rules: [
       // 解析样式表
