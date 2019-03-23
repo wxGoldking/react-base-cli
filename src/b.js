@@ -1,3 +1,4 @@
 export default function () {
-  console.log('i am b');
+  const arr = [1, 2, 3];
+  console.log('i am b', arr);
 }

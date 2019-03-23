@@ -3,9 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 动态生成html
 
 module.exports = {
-  output: {
-    filename: 'app/[name].js', // 出口文件名
-    path: path.resolve(__dirname, '../dist') // 出口路径
+  entry: {
+    app: [
+      path.resolve(__dirname, '../src/index.js'),
+    ]
   },
   plugins:[
     new HtmlWebpackPlugin({
@@ -16,7 +17,11 @@ module.exports = {
   ],
   module: {
     rules: [
-     
+      {
+        test:/(\.jsx|\.js)$/,
+        loader: 'babel-loader', // 加载器
+        exclude: /node_modules/,
+      },
     ]
   }
 }

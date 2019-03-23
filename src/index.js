@@ -5,4 +5,4 @@ console.log(process.env);
 a();
 b();
 
-document.querySelector('#app').innerHTML = 'React-base-cli56668866';
+document.querySelector('#app').innerHTML = 'React-base-cli';
