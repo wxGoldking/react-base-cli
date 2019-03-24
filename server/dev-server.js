@@ -11,7 +11,7 @@ const options = {
   historyApiFallback: true, //在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
   host: '0.0.0.0',
   port: 8888, //如果省略，默认8080
-  // publicPath: config.dev.assetsPublicPath,
+  publicPath: '/',
   // open: true, // 自动开启浏览器
 };
 
