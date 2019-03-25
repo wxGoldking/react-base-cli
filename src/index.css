@@ -1,8 +1,9 @@
-div{
+
+#app{
   color: red;
   text-align: center;
 }
-#app{
-  background: url('/static/2.jpg') no-repeat;
-  transform: translateX(-5%);
+
+#app .content{
+  transform: translateX(-1%);
 }

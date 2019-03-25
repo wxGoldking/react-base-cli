@@ -9,6 +9,18 @@ module.exports = {
       path.resolve(__dirname, '../src/index.js'),
     ]
   },
+  resolve: {
+    extensions: [".js", ".jsx", '.css'], //引入文件时支持省略后缀
+    // alias: {
+    //   "@": resolve("src"),
+    //   "@common": resolve("src/common"),
+    //   "@config": resolve("src/config"),
+    //   "@core": resolve("src/core"),
+    //   "@redux": resolve("src/redux"),
+    //   "@modules": resolve("modules"),
+    //   "@view": resolve("src/view"),
+    // }
+  },
   plugins:[
     new HtmlWebpackPlugin({
       filename: 'index.html', 
