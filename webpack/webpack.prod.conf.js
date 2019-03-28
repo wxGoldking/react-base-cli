@@ -14,10 +14,73 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 module.exports = merge(webpackConfig, {
   mode: config.build.mode,
   devtool: config.build.devtool, // 将编译打包后的代码映射回原始源代码，以便追踪程序的运行顺序；（source map 有很多[不同的选项](https://www.webpackjs.com/configuration/devtool)可用，请务必仔细阅读它们，以便可以根据需要进行配置。）
+  entry: [
+    path.resolve(__dirname, '../src/index.js')
+  ],
   output: {
     path: config.build.assetsRoot, // 出口路径
     filename: config.build.assetsSubDirectory + '/js/[name].[hash:8].js', // 出口文件名
+    // chunkFilename: config.build.assetsSubDirectory + '/js/[name].[hash:8].js',
     publicPath: config.build.assetsPublicPath // 为所有的资源引用设定根目录，方便为静态资源设置CDN，但对背景图片路径似乎无效
+  },
+   // 抽离公共模块
+  optimization: {
+    minimizer: [
+      // 简化JavaScript
+      new UglifyJSPlugin({
+        extractComments: true,
+        parallel: true,
+        uglifyOptions: {
+          warnings: false,
+          parse: {},
+          compress: {
+            passes: 2
+          },
+          mangle: {
+            toplevel: true,
+            eval: true
+          }, // Note `mangle.properties` is `false` by default.
+          output: null,
+          toplevel: false,
+          nameCache: null,
+          ie8: false,
+          keep_fnames: false,
+        }
+      })
+    ],
+    splitChunks: {
+      cacheGroups: {
+        // commons: {
+        //   name: "commons",
+        //   chunks: "initial",
+        //   minChunks: 2
+        // },
+        // core: {
+        //   test: /(.[\\/]core[\\/])|(.[\\/]common[\\/]baseComponent[\\/])|(.[\\/]config[\\/])|([\\/]src[\\/](lang|redux)[\\/])/,
+        //   name: "core",
+        //   chunks: "all",
+        //   enforce: true
+        // },
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react',
+          chunks: 'all',
+          enforce: true
+        },
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/](?!react)/,
+        //   name: "vendors",
+        //   chunks: "all",
+        //   enforce: true
+        // },
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   name: 'vendors',
+        //   chunks: 'all'
+        // },
+        default: false
+      }
+    }
   },
   plugins:[
     // 注册环境变量
@@ -31,40 +94,6 @@ module.exports = merge(webpackConfig, {
     new CleanWebpackPlugin(),
     // new BundleAnalyzerPlugin()
   ],
-   // 抽离公共模块
-  optimization: {
-    minimizer: [
-      //代码压缩插件(可有许多配置项待了解)
-      new UglifyJSPlugin({
-        sourceMap: true,
-      }),
-    ],
-    splitChunks: {
-      cacheGroups: {
-        // 默认抽离commons(一般自己配置)
-        commons: {
-          name: "commons", // 模块名
-          chunks: "initial", // 通过chunks选项可以选择块，有3个值："initial"、"async"和"all"。分别用于选择初始块、按需加载的块和所有块
-          minChunks: 2 //  最小重复次数
-        },
-        // 抽离react的例子
-        // b: {
-        //   test: /[\\/]src[\\/]/,
-        //   name: 'b',
-        //   chunks: 'all',
-        //   enforce: true
-        // },
-        // 抽离react的例子
-        // react: {
-        //   test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-        //   name: 'react',
-        //   chunks: 'all',
-        //   enforce: true
-        // },
-        default: false
-      }
-    }
-  },
   module: {
     rules: [
       // 解析样式表

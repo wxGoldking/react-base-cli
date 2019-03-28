@@ -39,9 +39,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/(\.jsx|\.js)$/,
-        loader: 'babel-loader', // 加载器
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules|modules|webpack/,
+        loader: "babel-loader",
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2|ico)$/,
