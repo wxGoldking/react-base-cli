@@ -9,7 +9,7 @@ module.exports = {
     assetsPublicPath: '/',
     mode:'development',
     host: '0.0.0.0', // can be overwritten by process.env.HOST
-    port: 3000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 3001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     cssSourceMap: false,// 是否开启 cssSourceMap
     devtool: 'cheap-module-eval-source-map',
@@ -21,7 +21,7 @@ module.exports = {
   build: {
     env: require('./prod.env'), // 使用 config/prod.env.js 中定义的编译环境
     index: path.resolve(__dirname, '../dist/index.html'), // 编译输入的 index.html 文件
-    mode: 'production', 
+    mode: 'production',
     assetsRoot: path.resolve(__dirname, '../dist'), // 编译输出的静态资源路径
     assetsSubDirectory: 'static', // 编译输出的二级目录
     assetsPublicPath: '/', // 编译发布的根目录，可配置为资源服务器域名或 CDN 域名

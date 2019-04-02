@@ -5,12 +5,11 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('../webpack/webpack.dev.conf.js');
 const config = require('../config');
 const webpack = require('webpack');
-const options = {  
-  contentBase: './dist',  
-  inline: false, // 自动刷新
-  hot: false, // 是否开启热模块替换（若要开启，只改为true是不够的）
+const options = {
+  contentBase: './dist',
+  inline: true, // 自动刷新(开启热模块替换时也要开启)
+  hot: true, // 是否开启热模块替换（改为true 配合react-hot-loader）
   historyApiFallback: true, //在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
-  host: '0.0.0.0',
   host: config.dev.host,
   port: config.dev.port, //如果省略，默认8080
   publicPath: config.dev.assetsPublicPath,
