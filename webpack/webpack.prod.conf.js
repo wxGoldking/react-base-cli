@@ -19,7 +19,7 @@ module.exports = merge(webpackConfig, {
   ],
   output: {
     path: config.build.assetsRoot, // 出口路径
-    filename: config.build.assetsSubDirectory + '/js/[name].[hash:8].js', // 出口文件名
+    filename: config.build.assetsSubDirectory + '/js/[name].[chunkhash:8].js', // 出口文件名
     // chunkFilename: config.build.assetsSubDirectory + '/js/[name].[hash:8].js',
     publicPath: config.build.assetsPublicPath // 为所有的资源引用设定根目录，方便为静态资源设置CDN，但对背景图片路径似乎无效
   },
@@ -88,8 +88,8 @@ module.exports = merge(webpackConfig, {
       'process.env': config.build.env
     }),
     new MiniCssExtractPlugin({
-      filename: config.build.assetsSubDirectory + '/css/[name].[hash:8].css',
-      chunkFilename: config.build.assetsSubDirectory + '/css/[name].[hash:8].css',
+      filename: config.build.assetsSubDirectory + '/css/[name].[chunkhash:8].css',
+      chunkFilename: config.build.assetsSubDirectory + '/css/[name].[chunkhash:8].css',
     }),
     new CleanWebpackPlugin(),
     // new BundleAnalyzerPlugin()
