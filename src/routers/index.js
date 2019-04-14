@@ -1,18 +1,17 @@
 import React from 'react';
-import AsyncComponent from './AsyncComponent';
+import "whatwg-fetch"; // 
+import AsyncComponent from '../AsyncComponent';
 import {
   BrowserRouter,
   Route,
   Switch,
   Redirect
 } from "react-router-dom";
-// import Home from './Home';
-// import User from './User';
 
-const Home = AsyncComponent(() => import(/* webpackChunkName: "Home" */ "./Home")),
-      User = AsyncComponent(() => import(/* webpackChunkName: "User" */ "./User")),
-      Home1 = AsyncComponent(() => import(/* webpackChunkName: "Home1" */ "./Home1")),
-      Home2 = AsyncComponent(() => import(/* webpackChunkName: "User2" */ "./Home2"));
+const Home = AsyncComponent(() => import(/* webpackChunkName: "Home" */ "../views/Home")),
+      User = AsyncComponent(() => import(/* webpackChunkName: "User" */ "../views/User")),
+      Home1 = AsyncComponent(() => import(/* webpackChunkName: "Home1" */ "../views/Home1")),
+      Home2 = AsyncComponent(() => import(/* webpackChunkName: "User2" */ "../views/Home2"));
 
 const BasicRoute = () => (
     <BrowserRouter>
