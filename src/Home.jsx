@@ -4,8 +4,14 @@ export default class Home extends Component {
   constructor(){
     super();
     this.state = {
-      a: 99
+      a: 100
     }
+  }
+
+  componentDidMount(){
+    fetch('/v4/live/list?reading=false&_source=m&limit=20').then(res=>res.json()).then(data=>console.log(data)).catch(err=>{
+      console.warn(err)
+    })
   }
 
   render() {
