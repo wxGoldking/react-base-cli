@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { todo_add, todo_delete } from '../redux/actions';
+import { bindActionCreators } from 'redux';
+import { todo_add, todo_delete, getList } from '../redux/actions';
 
 
 const mapStateToProps = ({ todo })=>({
   todoList: todo.todoList
 })
-const mapDispatchToProps = (dispatch)=>({
-  add: (data) => dispatch(todo_add(data)),
-  delete: (data) => dispatch(todo_delete(data)),
-})
+// const mapDispatchToProps = (dispatch)=>({
+//   add: (data)=> dispatch(todo_add(data)),
+//   delete: (data)=> dispatch(todo_delete(data)),
+//   getList: async () => dispatch(getList())
+// })
+const mapDispatchToProps = (dispatch)=>(bindActionCreators({
+    add: todo_add,
+    delete: todo_delete,
+    getList: getList
+  }, dispatch)
+)
 
 class Home extends Component {
   constructor(props) {
@@ -18,6 +26,12 @@ class Home extends Component {
       value: ''
     }
   }
+
+  async componentDidMount(){
+    await this.props.getList()
+    console.warn(99)
+  }
+
   
   render() {
     return (

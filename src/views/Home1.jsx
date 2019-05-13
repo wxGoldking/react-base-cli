@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch)=>({
   minus: (data) => dispatch(count_minus(data)),
 })
 
-class Count extends Component {
+class Count extends React.Component {
   render() {
     return (
       <div>
