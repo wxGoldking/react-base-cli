@@ -11,19 +11,19 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", '.css'], //引入文件时支持省略后缀
-    // alias: {
-    //   "@": resolve("src"),
+    alias: {
+      "@": path.resolve(__dirname, "../src"),
     //   "@common": resolve("src/common"),
     //   "@config": resolve("src/config"),
     //   "@core": resolve("src/core"),
     //   "@redux": resolve("src/redux"),
     //   "@modules": resolve("modules"),
     //   "@view": resolve("src/view"),
-    // }
+    }
   },
   plugins:[
     new HtmlWebpackPlugin({
-      filename: 'index.html', 
+      filename: 'index.html',
       template: 'index.html', //本地自定义模板
       inject: true
     }),

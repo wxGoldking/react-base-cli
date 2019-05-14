@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/dev-server",
     "dev": "node server/dev-server",
     "build": "webpack --config webpack/webpack.prod.conf.js"
   },
@@ -45,6 +46,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-redux": "^7.0.2",

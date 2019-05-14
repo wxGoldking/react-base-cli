@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "whatwg-fetch"; // 
+import "whatwg-fetch"; //
 import AsyncComponent from '../AsyncComponent';
 import {
   BrowserRouter,
@@ -18,8 +18,8 @@ const BasicRoute = () => (
         <Switch>
             <Route exact path="/" render={()=><Home/>}/>
             <Route exact path="/user" render={()=><User/>}/>
-            <Route exact path="/hom" render={()=><Home1/>}/>
-            <Route exact path="/home" render={()=><Home2/>}/>
+            <Route exact path="/home1" render={()=><Home1/>}/>
+            <Route exact path="/home2" render={()=><Home2/>}/>
             <Redirect to="/" />
         </Switch>
     </BrowserRouter>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import http from '@/libs/http';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { todo_add, todo_delete, getList } from '../redux/actions';
@@ -29,10 +30,17 @@ class Home extends Component {
 
   async componentDidMount(){
     await this.props.getList()
-    console.warn(99)
+    http('getActInfo',{
+      os: 3,
+      la: 0
+    }).then(data => console.warn(data))
+    http('coinInfo',{
+      cn: 'eth',
+    }).then(data => console.warn(data))
+    http('recommPairs').then(data => console.warn(data))
   }
 
-  
+
   render() {
     return (
       <div>
@@ -50,7 +58,7 @@ class Home extends Component {
           ))
         }
         <div className="options">
-          <input 
+          <input
             value={this.state.value}
             onChange={(e)=>this.setState({value:e.target.value})}
             type="text"
