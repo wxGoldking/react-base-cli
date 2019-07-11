@@ -8,8 +8,8 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     mode:'development',
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
-    port: 3001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: '127.0.0.1', // can be overwritten by process.env.HOST
+    port: 8000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     cssSourceMap: false,// 是否开启 cssSourceMap
     devtool: 'cheap-module-eval-source-map',

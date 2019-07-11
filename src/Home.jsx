@@ -9,7 +9,7 @@ export default class Home extends Component {
   }
 
   componentDidMount(){
-    fetch('/v4/live/list?reading=false&_source=m&limit=20').then(res=>res.json()).then(data=>console.log(data)).catch(err=>{
+    fetch('/api/articles?type=more&category=home&shown_offset=1562847069219136').then(res=>res.json()).then(data=>console.log(data)).catch(err=>{
       console.warn(err)
     })
   }
