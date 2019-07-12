@@ -27,12 +27,12 @@ module.exports = merge(webpackConfig, {
     publicPath: config.dev.assetsPublicPath,
     open: true, // 自动开启浏览器
     proxy: {
-      '/api': {
-        target: 'https://www.csdn.net', // 接口的域名
+      '/v4': {
+        target: 'https://api.jinse.com', // 接口的域名
         secure: false,  // 如果是https接口，需要配置这个参数
         progress: true,
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
-        logLevel: 'debug'
+        // logLevel: 'debug'
         // target: 'https://api.jinse.com',
         // changeOrigin: true,
         // secure: false
