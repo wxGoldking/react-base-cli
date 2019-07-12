@@ -71,13 +71,18 @@ module.exports = merge(webpackConfig, {
       {
         test: /\.css$/,
         use:[
-          { 
-            loader: MiniCssExtractPlugin.loader, 
+          {
+            loader: MiniCssExtractPlugin.loader,
             // options: {
             //   publicPath: '/cdn/static/'
             // }
           }, // 使用该loader后不再需要style-loader,如果配置会报错
-          { loader: 'css-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1// 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader。
+            }
+           },
           { loader: "postcss-loader" }  //追加样式兼容前缀
         ]
       },

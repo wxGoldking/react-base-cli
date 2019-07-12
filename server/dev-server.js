@@ -1,4 +1,6 @@
 'use strict'
+// 目前weback自带的devServer配置项已经很完善了，因此这种文件搭建的方式已 无甚卵用！
+
 // 一般只在开发环境配置，提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)，只需配置webpack设置，并为其添加运行脚本
 
 const WebpackDevServer = require('webpack-dev-server');
