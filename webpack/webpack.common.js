@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins:[
     new HtmlWebpackPlugin({
-      filename: 'index.html', 
+      filename: 'index.html',
       template: 'index.html', //本地自定义模板
       inject: true
     }),
@@ -40,13 +40,13 @@ module.exports = {
     rules: [
       {
         test:/(\.jsx|\.js)$/,
-        loader: 'babel-loader', // 加载器
         exclude: /node_modules/,
+        loader: 'babel-loader', // 加载器
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2|ico)$/,
-        loader: 'url-loader',
         exclude: /node_modules/,
+        loader: 'url-loader',
         // options: {
         //   limit: 100
         // }

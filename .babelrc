@@ -1,11 +1,17 @@
 {
-  "presets": ["env", "react", "stage-2"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage", //不需要把polly都打包到代码中，根据代码按需转译
+        // core-js@３和core-js@２二选一
+        //"corejs": 3,  //npm i --save core-js@３
+        "corejs": 2  //npm i --save core-js@2
+      }
+    ],
+    "@babel/preset-react"
+  ],
   "plugins": [
-    ["transform-runtime", {
-      "helpers": false,
-      "polyfill": false,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }]
+    "transform-class-properties"
   ]
 }
