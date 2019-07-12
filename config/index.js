@@ -24,7 +24,7 @@ module.exports = {
     mode: 'production',
     assetsRoot: path.resolve(__dirname, '../dist'), // 编译输出的静态资源路径
     assetsSubDirectory: 'static', // 编译输出的二级目录
-    assetsPublicPath: '/', // 编译发布的根目录，可配置为资源服务器域名或 CDN 域名
+    assetsPublicPath: '/', // 编译发布的根目录，可配置为资源服务器域名或 CDN 域名 类似http://127.0.0.1:8765/
     productionSourceMap: false, // 是否开启 cssSourceMap
     productionGzip: false, // 是否开启 gzip
     devtool: '#source-map',

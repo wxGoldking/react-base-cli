@@ -8,3 +8,17 @@
 #app .content{
   transform: translateX(-1%);
 }
+
+.user img{
+  display: block;
+  margin: 0 auto;
+}
+
+.user .img1{
+  height: 360px;
+  background: url('~@/images/one.jpg') no-repeat center top;
+}
+.user .img2{
+  height: 360px;
+  background: url('~@/images/top.png') no-repeat center top;
+}

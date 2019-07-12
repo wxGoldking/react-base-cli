@@ -11,12 +11,12 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin'); // 压缩js
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // 可视化打包分析工具
 
 
-module.exports = merge(webpackConfig, {
+module.exports = merge(webpackConfig(config.build.mode), {
   mode: config.build.mode,
   devtool: config.build.devtool, // 将编译打包后的代码映射回原始源代码，以便追踪程序的运行顺序；（source map 有很多[不同的选项](https://www.webpackjs.com/configuration/devtool)可用，请务必仔细阅读它们，以便可以根据需要进行配置。）
   output: {
     path: config.build.assetsRoot, // 出口路径
-    filename: config.build.assetsSubDirectory + '/js/[name].[hash:8].js', // 出口文件名
+    filename: config.build.assetsSubDirectory + '/js/[name].[chunkhash:8].js', // 出口文件名
     publicPath: config.build.assetsPublicPath // 为所有的资源引用设定根目录，方便为静态资源设置CDN，但对背景图片路径似乎无效
   },
   plugins:[
@@ -25,8 +25,8 @@ module.exports = merge(webpackConfig, {
       'process.env': config.build.env
     }),
     new MiniCssExtractPlugin({
-      filename: config.build.assetsSubDirectory + '/css/[name].[hash:8].css',
-      chunkFilename: config.build.assetsSubDirectory + '/css/[name].[hash:8].css',
+      filename: config.build.assetsSubDirectory + '/css/[name].[chunkhash:8].css',
+      chunkFilename: config.build.assetsSubDirectory + '/css/[name].[chunkhash:8].css',
     }),
     new CleanWebpackPlugin(),
     // new BundleAnalyzerPlugin()
@@ -83,7 +83,16 @@ module.exports = merge(webpackConfig, {
               importLoaders: 1// 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader。
             }
            },
-          { loader: "postcss-loader" }  //追加样式兼容前缀
+          { loader: "postcss-loader" },  //追加样式兼容前缀
+          // {
+          //   test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2|ico)$/,
+          //   exclude: /node_modules/,
+          //   loader: 'url-loader',
+          //   options: {
+          //     limit: 1024,  //是把小于500B的文件打成Base64的格式，写入JS
+          //     name: '/static/[name]_[hash:7].[ext]',
+          //   }
+          // }
         ]
       },
     ]

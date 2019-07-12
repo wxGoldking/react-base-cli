@@ -9,7 +9,7 @@ const merge = require('webpack-merge'); // 用于合并公共配置和特殊配�
 const webpackConfig = require('./webpack.common.js');
 
 
-module.exports = merge(webpackConfig, {
+module.exports = merge(webpackConfig(config.dev.mode), {
   mode: config.dev.mode,
   devtool: config.dev.devtool, // 将编译打包后的代码映射回原始源代码，以便追踪程序的运行顺序；（source map 有很多[不同的选项](https://www.webpackjs.com/configuration/devtool)可用，请务必仔细阅读它们，以便可以根据需要进行配置。）
   output: {
