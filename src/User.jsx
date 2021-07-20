@@ -13,7 +13,7 @@ export default class User extends Component {
         <h1>
           User
           <img src={img1} alt=""/>
-          <img src={img2} alt="" width="48%"/>
+          <img src={img2} alt="" width="49%"/>
           <div className="img1"></div>
           <div className="img2"></div>
         </h1>
