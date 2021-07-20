@@ -18,7 +18,7 @@ class User extends Component {
         <h1>
           {this.props.number}
         </h1>
-        <button onClick={()=>this.props.add(10)}> + 10</button>
+        <button onClick={()=>this.props.add(12)}> + 12</button>
         <button onClick={()=>this.props.minus(10)}> - 10</button>
       </div>
     )
