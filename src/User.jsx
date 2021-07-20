@@ -5,7 +5,6 @@ import img2 from '@images/2.jpg';
 export default class User extends Component {
   constructor(props) {
     super(props)
-    console.warn(img1, img2)
   }
 
   render() {
