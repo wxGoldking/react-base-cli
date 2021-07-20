@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import img1 from '@images/one.jpg';
-import img2 from '@images/top.png';
+import img2 from '@images/2.jpg';
 
 export default class User extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class User extends Component {
         <h1>
           User
           <img src={img1} alt=""/>
-          <img src={img2} alt=""/>
+          <img src={img2} alt="" width="40%"/>
           <div className="img1"></div>
           <div className="img2"></div>
         </h1>
