@@ -19,7 +19,7 @@
   background: url('~@/images/one.jpg') no-repeat center top;
 }
 .user .img2{
-  height: 360px;
+  height: 100vh;
   background: url('~@/images/2.jpg') no-repeat center top;
   background-size: auto 100%;
 }
